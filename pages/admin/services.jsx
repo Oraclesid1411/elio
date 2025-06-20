@@ -1,4 +1,4 @@
-import LayoutDashboard from "@/components/LayoutDashboard";
+import LayoutDashboard from "@/components/admin/LayoutDashboard";
 
 const GestionServices = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
-import '../public/assets/css/styles.css';
-import '../public/assets/css/plugins.css';
+import '../app/assets/css/styles.css';
+// import '../app/assets/css/plugins.css';
 import '../app/globals.css';
 import { AuthContextProvider } from '@/context/authContext';
 import App from 'next/app';
