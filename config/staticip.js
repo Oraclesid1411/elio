@@ -6,3 +6,6 @@ export const StaticIP =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:4001/' // local
     : process.env.NEXT_PUBLIC_API_URL; // prod (Railway)
+
+    console.log("StaticIP")
+    console.log(StaticIP)
