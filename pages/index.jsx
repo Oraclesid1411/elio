@@ -1,6 +1,6 @@
 import CategorySection from '@/components/category-section'
 import HeroBanner from '@/components/HeroBanner'
-import LastPrestataires from '@/components/LastPrestataires'
+// import LastPrestataires from '@/components/LastPrestataires'
 import Layout from '@/components/Layout'
 import NosOffres from '@/components/nos-offres'
 import TopCategories from '@/components/TopCategories'

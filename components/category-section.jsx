@@ -112,7 +112,7 @@ const CategorySection = () => {
 	useEffect(() => {
 		const fetchcategories = async () => {
 			try {
-				const response = await axios.get(`${StaticIP}api/categorie/liste`);
+				const response = await axios.get(`${StaticIP}/categorie/liste`);
 				if (response.data.Status) {
 
           const apiData = response.data.Result;
