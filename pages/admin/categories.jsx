@@ -124,11 +124,11 @@ const GestionCategories = () => {
   //   }
   // };
 
-  // const handleEdit = (cat) => {
-  //   setEditMode(true);
-  //   setLibelle(cat.libelle);
-  //   setEditId(cat.id);
-  // };
+  const handleEdit = (cat) => {
+    setEditMode(true);
+    setLibelle(cat.libelle);
+    setEditId(cat.id);
+  };
 
   if (!currentUser || currentUser.role !== '1') {
     return null;
