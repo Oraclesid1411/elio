@@ -12,7 +12,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     if (!currentUser) {
       router.push("/login");
-    } else if (currentUser.role !== "admin") {
+    } else if (currentUser.role !== "1") {
       router.push("/dashboard");
     }
   }, [currentUser]);
