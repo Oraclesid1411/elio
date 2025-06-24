@@ -43,43 +43,92 @@ const GestionCategories = () => {
   };
 
   console.log(categories)
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const createCategorie = async () => {
     try {
-      if (editMode) {
-        await axios.put(`/api/categories/${editId}`, { libelle });
-      } else {
-        await axios.post('/api/categories', {
-          libelle,
-          userid: currentUser.id,
-        });
-      }
+      await axios.post(`${StaticIP}api/categorie/create`, {
+        libelle,
+        userid: currentUser.id, // S'assurer que l'utilisateur est connecté
+      });
+      setLibelle('');
+      fetchCategories();
+    } catch (err) {
+      console.error('Erreur création catégorie:', err);
+    }
+  };
 
+  const updateCategorie = async () => {
+    try {
+      await axios.put(`${StaticIP}api/categorie/update/${editId}`, {
+        libelle,
+      });
       setLibelle('');
       setEditMode(false);
       setEditId(null);
       fetchCategories();
     } catch (err) {
-      console.error('Erreur soumission:', err);
+      console.error('Erreur modification catégorie:', err);
     }
   };
 
-  const handleDelete = async (id) => {
+  const deleteCategorie = async (id) => {
     if (!confirm('Supprimer cette catégorie ?')) return;
     try {
-      await axios.delete(`/api/categories/${id}`);
+      await axios.delete(`${StaticIP}api/categorie/delete/${id}`);
       fetchCategories();
     } catch (err) {
-      console.error('Erreur suppression:', err);
+      console.error('Erreur suppression catégorie:', err);
     }
   };
 
-  const handleEdit = (cat) => {
-    setEditMode(true);
-    setLibelle(cat.libelle);
-    setEditId(cat.id);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (editMode) {
+      await updateCategorie();
+    } else {
+      await createCategorie();
+    }
   };
+  const handleDelete = async (id) => {
+    await deleteCategorie(id);
+  };
+    
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     if (editMode) {
+  //       await axios.put(`/api/categories/${editId}`, { libelle });
+  //     } else {
+  //       await axios.post('/api/categories', {
+  //         libelle,
+  //         userid: currentUser.id,
+  //       });
+  //     }
+
+  //     setLibelle('');
+  //     setEditMode(false);
+  //     setEditId(null);
+  //     fetchCategories();
+  //   } catch (err) {
+  //     console.error('Erreur soumission:', err);
+  //   }
+  // };
+
+  // const handleDelete = async (id) => {
+  //   if (!confirm('Supprimer cette catégorie ?')) return;
+  //   try {
+  //     await axios.delete(`/api/categories/${id}`);
+  //     fetchCategories();
+  //   } catch (err) {
+  //     console.error('Erreur suppression:', err);
+  //   }
+  // };
+
+  // const handleEdit = (cat) => {
+  //   setEditMode(true);
+  //   setLibelle(cat.libelle);
+  //   setEditId(cat.id);
+  // };
 
   if (!currentUser || currentUser.role !== '1') {
     return null;
