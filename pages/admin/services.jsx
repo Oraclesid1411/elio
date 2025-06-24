@@ -40,7 +40,7 @@ const GestionServices = () => {
 
   const fetchServices = async () => {
     try {
-      const res = await axios.get(`${StaticIP}api/service/liste`);
+      const res = await axios.get(`${StaticIP}api/services/liste`);
       setServices(res.data.Result);
     } catch (err) {
       console.error('Erreur chargement services:', err);
@@ -66,9 +66,9 @@ const GestionServices = () => {
       };
 
       if (editMode) {
-        await axios.put(`${StaticIP}api/service/update/${editId}`, data);
+        await axios.put(`${StaticIP}api/services/update/${editId}`, data);
       } else {
-        await axios.post(`${StaticIP}api/service/create`, data);
+        await axios.post(`${StaticIP}api/services/create`, data);
       }
 
       resetForm();
@@ -95,7 +95,7 @@ const GestionServices = () => {
   const handleDelete = async (id) => {
     if (!confirm('Supprimer ce service ?')) return;
     try {
-      await axios.delete(`${StaticIP}api/service/delete/${id}`);
+      await axios.delete(`${StaticIP}api/services/delete/${id}`);
       fetchServices();
     } catch (err) {
       console.error('Erreur suppression:', err);
