@@ -83,7 +83,7 @@ const Login = () => {
                   required />
                 </div>
                 <div className="form-group">
-                  <button type="submit" className="btn btn-primary full-width" disabled={loading}>
+                  <button type="submit" className="btn btn-primary bg-blue-900 full-width" disabled={loading}>
                   {loading ? 'Connexion en cours...' : 'Se connecter'}
                   </button>
                 </div>

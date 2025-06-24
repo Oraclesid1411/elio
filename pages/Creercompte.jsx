@@ -64,7 +64,7 @@ const Creercompte = () => {
                                         required />
                                 </div>
                                 <div className="form-group">
-                                    <button type="submit" className="btn btn-primary full-width" disabled={loading}>
+                                    <button type="submit" className="btn bg-blue-800 btn-primary full-width" disabled={loading}>
                                         {loading ? 'Enregistrement en cours...' : 'S\'enregistrer'}
                                     </button>
                                 </div>
