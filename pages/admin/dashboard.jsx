@@ -11,7 +11,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     if (!currentUser) {
-      router.push("/login");
+      router.push("/Login");
     } else if (currentUser.role !== "1") {
       router.push("/dashboard");
     }
