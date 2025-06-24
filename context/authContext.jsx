@@ -13,6 +13,8 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedUser = localStorage.getItem("user");
+      console.log("storedUser")
+      console.log(storedUser)
       const parsedUser = storedUser ? JSON.parse(storedUser) : null;
       setCurrentUser(parsedUser);
       if (parsedUser?.role === "admin") setIsAdmin(true);
