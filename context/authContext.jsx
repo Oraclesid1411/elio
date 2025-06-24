@@ -17,7 +17,7 @@ export const AuthContextProvider = ({ children }) => {
       console.log(storedUser)
       const parsedUser = storedUser ? JSON.parse(storedUser) : null;
       setCurrentUser(parsedUser);
-      if (parsedUser?.role === "admin") setIsAdmin(true);
+      if (parsedUser?.role === "1") setIsAdmin(true);
     }
   }, []);
 
@@ -26,7 +26,7 @@ export const AuthContextProvider = ({ children }) => {
     if (typeof window !== "undefined") {
       if (currentUser) {
         localStorage.setItem("user", JSON.stringify(currentUser));
-        setIsAdmin(currentUser?.role === "admin");
+        setIsAdmin(currentUser?.role === "1");
       } else {
         localStorage.removeItem("user");
         setIsAdmin(false);

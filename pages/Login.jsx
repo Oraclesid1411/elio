@@ -36,8 +36,13 @@ const Login = () => {
           console.log(user)
 
           // return false;
-          if (user.role === "1") router.push("/admin/dashboard");  
+          if (user.role === "1"){
+            router.push("/admin/dashboard");  
+          }
+          else{
             router.push("/dashboard");
+          }
+          
           
 					// router.push('/Dashboard');
 				  }, 2000);
