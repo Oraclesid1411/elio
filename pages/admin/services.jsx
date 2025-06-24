@@ -30,7 +30,7 @@ const GestionServices = () => {
   const [editId, setEditId] = useState(null);
 
   useEffect(() => {
-    if (!currentUser) router.push('/login');
+    if (!currentUser) router.push('/Login');
     else if (currentUser.role !== '1') router.push('/dashboard');
   }, [currentUser]);
 
