@@ -32,13 +32,16 @@ const GestionCategories = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get('/api/categories');
-      setCategories(res.data);
+      const res = await axios.get(`${StaticIP}api/categorie/liste`);
+			
+      // const res = await axios.get('/api/categories');
+      setCategories(res.data.Result);
     } catch (err) {
       console.error('Erreur chargement catégories:', err);
     }
   };
 
+  console.log(categories)
   const handleSubmit = async (e) => {
     e.preventDefault();
 
