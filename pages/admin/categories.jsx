@@ -6,6 +6,7 @@ import { AuthContext } from '@/context/authContext';
 import LayoutDashboard from '@/components/admin/LayoutDashboard';
 import axios from 'axios';
 import { Pencil, Trash2 } from 'lucide-react'; // Icônes
+import { StaticIP } from '@/config/staticip';
 
 const GestionCategories = () => {
   const { currentUser } = useContext(AuthContext);
