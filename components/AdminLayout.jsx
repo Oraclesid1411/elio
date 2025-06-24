@@ -9,8 +9,8 @@ export default function AdminLayout({ children }) {
     const token = localStorage.getItem('admin_token');
     console.log("token")
     console.log(token)
-    if (!token && router.pathname !== '/login') {
-      router.push('/login');
+    if (!token && router.pathname !== '/Login') {
+      router.push('/Login');
     }
   }, []);
 
